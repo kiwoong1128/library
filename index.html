@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./styles.css" />
+
+
+</head>
+
+<body>
+  <h1>Library</h1>
+
+  <button class="open-button" onclick="openForm()">+</button>
+  <div class="form-popup" id="myForm">
+    <form class="form-container">
+      <h2>Add Book</h2>
+      <label type="text">Title</label>
+      <input type="text" placeholder="Book Title" name="title" required>
+
+      <label type="text">Author</label>
+      <input type="text" placeholder="Author" name="author" required>
+
+      <label type="text">Pages</label>
+      <input type="text" placeholder="# of Pages" name="pages">
+
+      <button type="submit" class="btn" onclick="addBook()">Add</button>
+      <button type="submit" class="btn cancel" onclick="closeForm()">Cancel</button>
+    </form>
+
+  </div>
+
+  <div id="books-container">
+    <table id="books-table">
+      <tr id="table-header">
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>read</th>
+      </tr>
+  </div>
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="scripts.js"></script>
+</body>
+
+
+</html>

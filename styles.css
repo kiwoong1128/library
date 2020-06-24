@@ -1,0 +1,103 @@
+body {
+  font-family: Roboto;
+  margin: auto;
+  text-align: center;
+  background-color: #121212;
+  color: #FFFFFF;
+}
+
+/* COLORS
+  #03DAC5; TEAL
+  #BB86FC; PURPLE
+  #121212; light BLACK
+*/
+
+h1 {
+  color: #BB86FC;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin:auto;
+  margin-top: 5%;
+  background-color: rgba(256,256,256,0.11);
+  border-radius: 11px;
+  overflow:hidden;
+}
+
+td, th {
+  /*border: 1px solid rgba(256,256,256,0.16);;*/
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  font-weight: normal;
+}
+
+#table-header {
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  background-color: rgba(256,256,256,0.05);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(256,256,256,0.09);
+}
+
+/* Form for adding books */
+.open-button {
+  background-color: #BB86FC;
+  color: #121212;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  left: 30%;
+  font-size: 2em;
+  width: 100px;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier();
+  transition-property: width;
+}
+.open-button:focus {
+  outline:none;
+  background-color: #996DCF;
+  width: 200px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  margin-left: -150px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: #3c3c3c;
+
+}
+
+input[type=text] {
+  width: 100%;
+}
+
+input:focus {
+  background-color: pink;
+  outline: none;
+}
+
+/*MOBILE SETTINGS*/
+@media only screen and (max-width: 600px) {
+  table {
+    width: 90%;
+    font-size: 14px;
+  }
+}
