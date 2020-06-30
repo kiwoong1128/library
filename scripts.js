@@ -1,10 +1,11 @@
-let myLibrary = [];
-var booksTable = document.getElementById("books-table");
+let myLibrary = []; //INTERNAL ARRAY
+var booksTable = document.getElementById("books-table"); //ACTUAL TABLE DOM
 
 let book1 = new Book("The Hobbit", "J.R.R. Tolkien",295, false);
 let book2 = new Book("Ender's Game", "Orson Scott Card", 324, true);
 myLibrary.push(book1);
 myLibrary.push(book2);
+
 
 render();
 
@@ -26,7 +27,7 @@ function Book(title, author, pages, read) {
 
 function addBook() {
   const bookData = document.querySelectorAll('input');
-  myLibrary.push(new Book(bookData[0].value, bookData[1].value, bookData[2].value, true));
+  myLibrary.push(new Book(bookData[0].value, bookData[1].value, bookData[2].value, false));
   closeForm();
   render();
 }
@@ -54,11 +55,36 @@ function render() {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     cell1.textContent = book.title;
+    /*  DELETE BUTTON */
+      var p = document.createElement("span");
+      p.textContent = " X ";
+      p.className = 'delete';
+      p.id = row.rowIndex;
+      cell1.appendChild(p);
+    cell1.className = "titles";
     cell2.textContent = book.author;
     cell3.textContent = book.pages;
-    cell4.textContent = book.read;
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    if(book.read == true) {
+      x.checked = true;
+    }
+    cell4.appendChild(x);
   });
+
+  let titles = document.querySelectorAll(".delete");
+  for(const title of titles) {
+    title.addEventListener('click', function(event) {
+      booksTable.deleteRow(parseInt(this.id));
+      myLibrary.splice(parseInt(this.id - 1), 1);
+      myLibrary.forEach(book => console.log(book));
+    });
+  }
+
 }
+
+
+
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
